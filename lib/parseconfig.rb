@@ -5,12 +5,8 @@
 # 
 
 # This class was written to simplify the parsing of configuration
-# files in the format of "param = value".  Please review the 
-# demo files included with this package.
-#
-# For further information please refer to the './doc' directory
-# as well as the ChangeLog and README files included.
-#
+# files in the format of "param = value".  
+
 
 class ParseConfig
   
@@ -22,11 +18,16 @@ class ParseConfig
     @config_file = config_file
     raise Errno::EACCES, "#{@config_file} is not readable" unless File.readable?(@config_file)
     @hash = {}
-    open(@config_file).each { |line| 
+    section = nil
+    open(@config_file).each { |line|
       line.chomp
       unless (/^\#/.match(line))
+        if line =~ /\s*\[(.*)\]\s*/
+          section = $1
+          @hash[section] = {}
+        end
         if(/\s*=\s*/.match(line))
-          param, value = line.split(/\s*=\s*/, 2)  
+          param, value = line.split(/\s*=\s*/, 2)
           var_name = "#{param}".chomp.strip
           value = value.chomp.strip
           new_value = ''
@@ -39,7 +40,12 @@ class ParseConfig
           else
             new_value = ''
           end
-          @hash[var_name] = new_value
+          if section.nil?
+            @hash[var_name] = new_value
+          else
+            puts "setting nested hash"
+            @hash[section][var_name] = new_value
+          end
         end
       end
     }

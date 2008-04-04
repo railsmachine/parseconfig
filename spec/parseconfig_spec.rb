@@ -56,6 +56,11 @@ describe 'ParseConfig' do
     end
 
     it 'should create a nested hash for config file sections' do
+      @config['section1'].should_not be_nil
+      @config['section2'].should_not be_nil
+    end
+
+    it 'should set the values specified in those sections' do
       @config['section1']['sec1_key1'].should == 'sec1_val1'
       @config['section1']['sec1_key2'].should == 'sec1_val2'
     end
