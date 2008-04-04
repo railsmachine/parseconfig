@@ -31,7 +31,6 @@ describe 'ParseConfig' do
 
     it 'should handle values with spaces' do
       @config['key3'].should == 'this is a value with spaces, and it may work!'
-
     end
 
     it 'should handle quoted values' do
@@ -41,6 +40,29 @@ describe 'ParseConfig' do
 
     it 'should handle keys with spaces' do
       @config['key with spaces'].should == 'wahoo'
+    end
+
+  end
+
+  describe 'parsing a config file with headers' do
+
+    before(:each) do
+      @config = ParseConfig.new(File.dirname(__FILE__) + '/conf/with_headers.conf')
+    end
+
+    it 'should handle top level keys just fine' do
+      @config['key1'].should == 'val1'
+      @config['key2'].should == 'val2'
+    end
+
+    it 'should create a nested hash for config file sections' do
+      @config['section1']['sec1_key1'].should == 'sec1_val1'
+      @config['section1']['sec1_key2'].should == 'sec1_val2'
+    end
+
+    it 'should handle duplicate keys' do
+      @config['section2']['key1'].should == 'val1'
+      @config['section2']['key2'].should == 'val2'
     end
 
   end
