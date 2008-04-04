@@ -1,0 +1,35 @@
+--- !ditz.rubyforge.org,2008-03-06/project 
+name: parseconfig
+version: "0.1"
+issues: 
+- !ditz.rubyforge.org,2008-03-06/issue 
+  title: setup echo for rubyforge stuff
+  desc: ""
+  type: :feature
+  component: parseconfig
+  release: "4.3"
+  reporter: Jesse Newland <jesse@railsmachine.com>
+  status: :unstarted
+  disposition: 
+  creation_time: 2008-04-04 10:27:18.191630 -04:00
+  references: []
+
+  id: d3ebf114323ab53c6932ee103ad9cd0cdbaec46e
+  log_events: 
+  - - 2008-04-04 10:27:19.632118 -04:00
+    - Jesse Newland <jesse@railsmachine.com>
+    - created
+    - ""
+components: 
+- !ditz.rubyforge.org,2008-03-06/component 
+  name: parseconfig
+releases: 
+- !ditz.rubyforge.org,2008-03-06/release 
+  name: "4.3"
+  status: :unreleased
+  release_time: 
+  log_events: 
+  - - 2008-04-04 10:26:22.021653 -04:00
+    - Jesse Newland <jesse@railsmachine.com>
+    - created
+    - ""
