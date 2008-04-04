@@ -1,20 +1,22 @@
 rb-parseconfig
     by BJ Dierkes
-    http://www.5dollarwhitebox.org 
+    http://www.5dollarwhitebox.org
+    changes by Jesse Newland
+    http://www.railsmachine.com
 
 == DESCRIPTION:
-  
-rb-parseconfig is a Ruby class written to parse simple configuration 
-files in the format of 'param = value'. The key benefit is that your ruby 
-scripts can use the same configuration files of most unix/linux 
+
+rb-parseconfig is a Ruby class written to parse simple configuration
+files in the format of 'param = value'. The key benefit is that your ruby
+scripts can use the same configuration files of most unix/linux
 applications.
 
 == FEATURES/PROBLEMS:
-  
+
 Parsing of simple configuration files (not Ruby specific).
 Allows ruby applications as well as Bash Init scripts to use the same config.
 
-Problem: Currently single quotes are stripped... therefore, values with a 
+Problem: Currently single quotes are stripped... therefore, values with a
 single quote are not possible.
 
 == SYNOPSIS:
@@ -22,14 +24,14 @@ single quote are not possible.
   require('rubygems')
   require('parseconfig')
   config = ParseConfig.new('/path/to/config/file')
-  puts config.get_value('log_file')
-  puts config.get_value('pid_file')
+  puts config['log_file']
+  puts config['pid_file']
   ...
 
 == REQUIREMENTS:
 
   * Ruby (Developed on 1.8.6)
-  * RubyGems 
+  * RubyGems
 
 == INSTALL:
 
@@ -38,6 +40,7 @@ single quote are not possible.
 == LICENSE:
 
 Copyright (C) 2006,2007  BJ Dierkes <wdierkes@5dollarwhitebox.org>
+Copyright (C) 2008  Rails Machine
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License

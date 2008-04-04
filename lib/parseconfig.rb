@@ -1,15 +1,18 @@
-# Author::      BJ Dierkes <wdierkes@5dollarwhitebox.org> 
-# Copyright::   Copyright (c) 2006,2007 5dollarwhitebox.org 
+# Author::      BJ Dierkes <wdierkes@5dollarwhitebox.org>
+# Author::      Jesse Newland <jesse@railsmachine.com>
+# Copyright::   Copyright (c) 2006,2007 5dollarwhitebox.org
+# Copyright::   Copyright (c) 2008 RailsMachine
 # License::     GPL
 # URL::         http://www.5dollarwhitebox.org
-# 
+# URL::         http://www.railsmachine.com
+#
 
 # This class was written to simplify the parsing of configuration
-# files in the format of "param = value".  
+# files in the format of "param = value".
 
 
 class ParseConfig
-  
+
   Version = '0.4.2'
 
   # Initialize the class with the path to the 'config_file'
@@ -43,7 +46,6 @@ class ParseConfig
           if section.nil?
             @hash[var_name] = new_value
           else
-            puts "setting nested hash"
             @hash[section][var_name] = new_value
           end
         end
@@ -55,5 +57,5 @@ class ParseConfig
     @hash[key]
   end
 
-  
+
 end
