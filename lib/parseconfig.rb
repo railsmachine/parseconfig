@@ -74,16 +74,13 @@ module TechnoGate
     end
 
     def inherit(group, parent)
-      inheritence[group] ||= []
-      inheritence[group].push(parent)
+      inheritence[group] = parent
     end
 
     def setup_inheritence
-      inheritence.each do |group, parents|
-        parents.each do |parent|
-          params[parent].each do |var_name, new_value|
-            add_to_group(group, var_name, new_value, false)
-          end
+      inheritence.each do |group, parent|
+        params[parent].each do |var_name, new_value|
+          add_to_group(group, var_name, new_value, false)
         end
       end
     end
