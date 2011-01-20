@@ -72,4 +72,30 @@ describe 'ParseConfig' do
 
   end
 
+  describe 'parsing a config file with headers and inheritence' do
+    before(:each) do
+      @config = ParseConfig.new(File.dirname(__FILE__) + '/conf/with_headers_inheritence.conf')
+    end
+
+    it 'should create a nested hash for config file sections' do
+      @config['section1'].should_not be_nil
+      @config['section2'].should_not be_nil
+    end
+
+    it 'should set the values specified in those sections' do
+      @config['section1']['sec1_key1'].should == 'sec1_val1'
+      @config['section1']['sec1_key2'].should == 'sec1_val2'
+    end
+
+    it 'should handle duplicate keys' do
+      @config['section2']['key1'].should == 'val1'
+      @config['section2']['key2'].should == 'val2'
+    end
+
+    it 'should support inheritence' do
+      @config['section2']['sec1_key1'].should == 'sec1_val1'
+      @config['section2']['sec1_key2'].should == 'sec1_val2'
+    end
+  end
+
 end

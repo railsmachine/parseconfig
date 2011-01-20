@@ -25,7 +25,11 @@ class ParseConfig
     open(@config_file).each { |line|
       line.chomp
       unless (/^\#/.match(line))
-        if line =~ /\s*\[(.*)\]\s*/
+        if line =~ /\s*\[(.*) : (.*)\]\s*/
+          section = $1
+          parent_section = $2
+          @hash[section] = @hash[parent_section]
+        elsif line =~ /\s*\[(.*)\]\s*/
           section = $1
           @hash[section] = {}
         end
