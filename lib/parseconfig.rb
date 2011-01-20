@@ -140,6 +140,7 @@ module TechnoGate
 
     # Writes out the config file to output_stream
     def write(output_stream=STDOUT)
+      setup_inheritence
       params.each do |name,value|
         if value.class.to_s != 'Hash'
           if value.scan(/\w+/).length > 1

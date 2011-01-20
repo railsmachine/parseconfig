@@ -98,4 +98,24 @@ describe 'ParseConfig' do
     end
   end
 
+  describe 'creating a config file.' do
+    before(:each) do
+      @config = ParseConfig.new
+    end
+
+    it "should add a group if hash given" do
+      @config.add('production', {})
+      @config.groups.should include('production')
+    end
+
+    it "should allow inheritence" do
+      @config.add('production', {})
+      @config.add('development', {})
+      @config.inherit 'development', 'production'
+
+      @config.inheritence.should include 'development'
+      @config.inheritence['development'].should == 'production'
+    end
+  end
+
 end
