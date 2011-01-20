@@ -5,13 +5,13 @@
 
 Gem::Specification.new do |s|
   s.name = %q{parseconfig}
-  s.version = "0.5.0"
+  s.version = "0.6.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Jesse Newland", "Wael Nasreddine"]
+  s.authors = ["BJ Dierkes", "Jesse Newland", "Wael Nasreddine"]
   s.date = %q{2011-01-20}
   s.description = %q{parseconfig is a Ruby class written to parse simple configuration files in the format of 'param = value'. The key benefit is that your ruby scripts can use the same configuration files of most unix/linux applications.}
-  s.email = ["jnewland@gmail.com", "wael.nasreddine@gmail.com"]
+  s.email = ["wdierkes@5dollarwhitebox.org", "jnewland@gmail.com", "wael.nasreddine@gmail.com"]
   s.extra_rdoc_files = [
     "LICENSE",
     "README.rdoc"
