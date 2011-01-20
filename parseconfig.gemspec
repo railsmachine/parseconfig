@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{parseconfig}
-  s.version = "0.4.2"
+  s.version = "0.5.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jesse Newland", "Wael Nasreddine"]
@@ -65,3 +65,4 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<rspec>, ["~> 2.4.0"])
   end
 end
+
