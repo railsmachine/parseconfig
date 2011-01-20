@@ -13,7 +13,7 @@
 
 class ParseConfig
 
-  Version = '0.4.2'
+  Version = File.exist?(File.expand_path(File.dirname(__FILE__)+"/../VERSION"))? File.read(File.expand_path(File.dirname(__FILE__)+"/../VERSION")) : ''
 
   # Initialize the class with the path to the 'config_file'
   # The config file is parsed into a hash.

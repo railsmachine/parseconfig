@@ -1,1 +1,51 @@
-bugs.yaml~
+# Backup files
+*~
+
+# rcov generated
+coverage
+
+# rdoc generated
+rdoc
+
+# extensions generated
+tmp
+
+# yard generated
+doc
+.yardoc
+
+# bundler
+.bundle
+
+# jeweler generated
+pkg
+
+# For MacOS:
+.DS_Store
+
+# For Windows
+Thumbs.db
+
+# Eclipse
+.project
+.cproject
+
+# For TextMate
+*.tmproj
+tmtags
+
+# Redcar
+.redcar
+
+# Todo
+.todo
+
+# For emacs:
+\#*
+.\#*
+
+# For vim:
+*.swp
+
+# Netbeans
+nbproject
