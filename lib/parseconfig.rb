@@ -152,12 +152,18 @@ module TechnoGate
       output_stream.puts "\n"
 
       groups.each do |group|
-        output_stream.puts "[#{group}]"
+        if inheritence[group]
+          output_stream.puts "[#{group} : #{inheritence[group]}]"
+        else
+          output_stream.puts "[#{group}]"
+        end
         params[group].each do |param, value|
-          if value.scan(/\w+/).length > 1
-            output_stream.puts "#{param} = \"#{value}\""
-          else
-            output_stream.puts "#{param} = #{value}"
+          unless (inheritence.has_key?(group) and params[inheritence[group]][param] == value)
+            if value.scan(/\w+/).length > 1
+              output_stream.puts "#{param} = \"#{value}\""
+            else
+              output_stream.puts "#{param} = #{value}"
+            end
           end
         end
         output_stream.puts "\n"
