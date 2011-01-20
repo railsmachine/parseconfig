@@ -101,6 +101,7 @@ describe 'ParseConfig' do
   describe 'creating a config file.' do
     before(:each) do
       @config = ParseConfig.new
+      @output_stream = StringIO.new
     end
 
     it "should add a group if hash given" do
@@ -115,6 +116,17 @@ describe 'ParseConfig' do
 
       @config.inheritence.should include 'development'
       @config.inheritence['development'].should == 'production'
+    end
+
+    it "should be able to create a file" do
+      @config.add('production', {})
+      @config.add('development', {})
+      @config.inherit 'development', 'production'
+
+      @config.write(@output_stream)
+
+      @output_stream.string.split("\n" ).should include ('[production]')
+      @output_stream.string.split("\n" ).should include ('[development : production]')
     end
   end
 
